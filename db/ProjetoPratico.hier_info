@@ -1,0 +1,405 @@
+|ProjetoPratico
+MAX10_CLK1_50 => clk.IN4
+KEY[0] => _.IN1
+KEY[1] => ~NO_FANOUT~
+SW[0] => SW[0].IN1
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => async_rstn.IN1
+HEX0[0] <= SEG7_LUT:comb_15.oSEG
+HEX0[1] <= SEG7_LUT:comb_15.oSEG
+HEX0[2] <= SEG7_LUT:comb_15.oSEG
+HEX0[3] <= SEG7_LUT:comb_15.oSEG
+HEX0[4] <= SEG7_LUT:comb_15.oSEG
+HEX0[5] <= SEG7_LUT:comb_15.oSEG
+HEX0[6] <= SEG7_LUT:comb_15.oSEG
+HEX0[7] <= SEG7_LUT:comb_15.oSEG
+HEX1[0] <= SEG7_LUT:comb_16.oSEG
+HEX1[1] <= SEG7_LUT:comb_16.oSEG
+HEX1[2] <= SEG7_LUT:comb_16.oSEG
+HEX1[3] <= SEG7_LUT:comb_16.oSEG
+HEX1[4] <= SEG7_LUT:comb_16.oSEG
+HEX1[5] <= SEG7_LUT:comb_16.oSEG
+HEX1[6] <= SEG7_LUT:comb_16.oSEG
+HEX1[7] <= SEG7_LUT:comb_16.oSEG
+HEX2[0] <= SEG7_LUT:comb_17.oSEG
+HEX2[1] <= SEG7_LUT:comb_17.oSEG
+HEX2[2] <= SEG7_LUT:comb_17.oSEG
+HEX2[3] <= SEG7_LUT:comb_17.oSEG
+HEX2[4] <= SEG7_LUT:comb_17.oSEG
+HEX2[5] <= SEG7_LUT:comb_17.oSEG
+HEX2[6] <= SEG7_LUT:comb_17.oSEG
+HEX2[7] <= SEG7_LUT:comb_17.oSEG
+HEX3[0] <= SEG7_LUT:comb_18.oSEG
+HEX3[1] <= SEG7_LUT:comb_18.oSEG
+HEX3[2] <= SEG7_LUT:comb_18.oSEG
+HEX3[3] <= SEG7_LUT:comb_18.oSEG
+HEX3[4] <= SEG7_LUT:comb_18.oSEG
+HEX3[5] <= SEG7_LUT:comb_18.oSEG
+HEX3[6] <= SEG7_LUT:comb_18.oSEG
+HEX3[7] <= SEG7_LUT:comb_18.oSEG
+LEDR[0] <= numeroContador5[0].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[1] <= numeroContador5[1].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[2] <= numeroContador5[2].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[3] <= numeroContador5[3].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[4] <= numeroContador5[4].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[5] <= numeroContador5[5].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[6] <= numeroContador5[6].DB_MAX_OUTPUT_PORT_TYPE
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+
+
+|ProjetoPratico|AsyncInputSynchronizer:comb_12
+clk => second_ff.CLK
+clk => first_ff.CLK
+asyncn => second_ff.ACLR
+asyncn => first_ff.ACLR
+syncn <= second_ff.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|DirectionController:comb_13
+clk => state_reg~1.DATAIN
+rstn => state_reg~3.DATAIN
+button => always2.IN1
+button => always2.IN1
+switch => state_next.I.DATAB
+switch => Selector0.IN1
+counter5[0] => LessThan0.IN14
+counter5[0] => LessThan1.IN14
+counter5[1] => LessThan0.IN13
+counter5[1] => LessThan1.IN13
+counter5[2] => LessThan0.IN12
+counter5[2] => LessThan1.IN12
+counter5[3] => LessThan0.IN11
+counter5[3] => LessThan1.IN11
+counter5[4] => LessThan0.IN10
+counter5[4] => LessThan1.IN10
+counter5[5] => LessThan0.IN9
+counter5[5] => LessThan1.IN9
+counter5[6] => LessThan0.IN8
+counter5[6] => LessThan1.IN8
+counter1[0] => LessThan2.IN20
+counter1[1] => LessThan2.IN19
+counter1[2] => LessThan2.IN18
+counter1[3] => LessThan2.IN17
+counter1[4] => LessThan2.IN16
+counter1[5] => LessThan2.IN15
+counter1[6] => LessThan2.IN14
+counter1[7] => LessThan2.IN13
+counter1[8] => LessThan2.IN12
+counter1[9] => LessThan2.IN11
+data_out[0] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= data_out[2].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|SEG7_LUT:comb_15
+iDIG[0] => Decoder0.IN4
+iDIG[1] => Decoder0.IN3
+iDIG[2] => Decoder0.IN2
+iDIG[3] => Decoder0.IN1
+iDIG[4] => Decoder0.IN0
+oSEG[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|SEG7_LUT:comb_16
+iDIG[0] => Decoder0.IN4
+iDIG[1] => Decoder0.IN3
+iDIG[2] => Decoder0.IN2
+iDIG[3] => Decoder0.IN1
+iDIG[4] => Decoder0.IN0
+oSEG[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|SEG7_LUT:comb_17
+iDIG[0] => Decoder0.IN4
+iDIG[1] => Decoder0.IN3
+iDIG[2] => Decoder0.IN2
+iDIG[3] => Decoder0.IN1
+iDIG[4] => Decoder0.IN0
+oSEG[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|SEG7_LUT:comb_18
+iDIG[0] => Decoder0.IN4
+iDIG[1] => Decoder0.IN3
+iDIG[2] => Decoder0.IN2
+iDIG[3] => Decoder0.IN1
+iDIG[4] => Decoder0.IN0
+oSEG[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+oSEG[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|contador1:comb_19
+clk => clk.IN2
+enableContador1 => enableContador1.IN1
+numero1segundo[0] <= counter2:cnt.count
+numero1segundo[1] <= counter2:cnt.count
+numero1segundo[2] <= counter2:cnt.count
+numero1segundo[3] <= counter2:cnt.count
+numero1segundo[4] <= counter2:cnt.count
+numero1segundo[5] <= counter2:cnt.count
+numero1segundo[6] <= counter2:cnt.count
+numero1segundo[7] <= counter2:cnt.count
+numero1segundo[8] <= counter2:cnt.count
+numero1segundo[9] <= counter2:cnt.count
+rstn => rstn.IN2
+
+
+|ProjetoPratico|contador1:comb_19|divisor1segundo:div
+clock_in => clock_out~reg0.CLK
+clock_in => count[0].CLK
+clock_in => count[1].CLK
+clock_in => count[2].CLK
+clock_in => count[3].CLK
+clock_in => count[4].CLK
+clock_in => count[5].CLK
+clock_in => count[6].CLK
+clock_in => count[7].CLK
+clock_in => count[8].CLK
+clock_in => count[9].CLK
+clock_in => count[10].CLK
+clock_in => count[11].CLK
+clock_in => count[12].CLK
+clock_in => count[13].CLK
+clock_in => count[14].CLK
+clock_in => count[15].CLK
+reset_n => clock_out~reg0.ACLR
+reset_n => count[0].ACLR
+reset_n => count[1].ACLR
+reset_n => count[2].ACLR
+reset_n => count[3].ACLR
+reset_n => count[4].ACLR
+reset_n => count[5].ACLR
+reset_n => count[6].ACLR
+reset_n => count[7].ACLR
+reset_n => count[8].ACLR
+reset_n => count[9].ACLR
+reset_n => count[10].ACLR
+reset_n => count[11].ACLR
+reset_n => count[12].ACLR
+reset_n => count[13].ACLR
+reset_n => count[14].ACLR
+reset_n => count[15].ACLR
+enable => clock_out~reg0.ENA
+enable => count[15].ENA
+enable => count[14].ENA
+enable => count[13].ENA
+enable => count[12].ENA
+enable => count[11].ENA
+enable => count[10].ENA
+enable => count[9].ENA
+enable => count[8].ENA
+enable => count[7].ENA
+enable => count[6].ENA
+enable => count[5].ENA
+enable => count[4].ENA
+enable => count[3].ENA
+enable => count[2].ENA
+enable => count[1].ENA
+enable => count[0].ENA
+clock_out <= clock_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|contador1:comb_19|counter2:cnt
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+clk => count[7]~reg0.CLK
+clk => count[8]~reg0.CLK
+clk => count[9]~reg0.CLK
+rstn => count[0]~reg0.ACLR
+rstn => count[1]~reg0.ACLR
+rstn => count[2]~reg0.ACLR
+rstn => count[3]~reg0.ACLR
+rstn => count[4]~reg0.ACLR
+rstn => count[5]~reg0.ACLR
+rstn => count[6]~reg0.ACLR
+rstn => count[7]~reg0.ACLR
+rstn => count[8]~reg0.ACLR
+rstn => count[9]~reg0.ACLR
+en => count[0]~reg0.ENA
+en => count[9]~reg0.ENA
+en => count[8]~reg0.ENA
+en => count[7]~reg0.ENA
+en => count[6]~reg0.ENA
+en => count[5]~reg0.ENA
+en => count[4]~reg0.ENA
+en => count[3]~reg0.ENA
+en => count[2]~reg0.ENA
+en => count[1]~reg0.ENA
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[7] <= count[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[8] <= count[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[9] <= count[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|contador5:comb_22
+clk => clk.IN2
+enableContador5 => enableContador5.IN1
+numero[0] <= counter:cnt.count
+numero[1] <= counter:cnt.count
+numero[2] <= counter:cnt.count
+numero[3] <= counter:cnt.count
+numero[4] <= counter:cnt.count
+numero[5] <= counter:cnt.count
+numero[6] <= counter:cnt.count
+rstn => rstn.IN2
+
+
+|ProjetoPratico|contador5:comb_22|divisor:div
+clock_in => clock_out~reg0.CLK
+clock_in => count[0].CLK
+clock_in => count[1].CLK
+clock_in => count[2].CLK
+clock_in => count[3].CLK
+clock_in => count[4].CLK
+clock_in => count[5].CLK
+clock_in => count[6].CLK
+clock_in => count[7].CLK
+clock_in => count[8].CLK
+clock_in => count[9].CLK
+clock_in => count[10].CLK
+clock_in => count[11].CLK
+clock_in => count[12].CLK
+clock_in => count[13].CLK
+clock_in => count[14].CLK
+clock_in => count[15].CLK
+clock_in => count[16].CLK
+clock_in => count[17].CLK
+clock_in => count[18].CLK
+clock_in => count[19].CLK
+clock_in => count[20].CLK
+clock_in => count[21].CLK
+clock_in => count[22].CLK
+clock_in => count[23].CLK
+clock_in => count[24].CLK
+clock_in => count[25].CLK
+reset_n => clock_out~reg0.ACLR
+reset_n => count[0].ACLR
+reset_n => count[1].ACLR
+reset_n => count[2].ACLR
+reset_n => count[3].ACLR
+reset_n => count[4].ACLR
+reset_n => count[5].ACLR
+reset_n => count[6].ACLR
+reset_n => count[7].ACLR
+reset_n => count[8].ACLR
+reset_n => count[9].ACLR
+reset_n => count[10].ACLR
+reset_n => count[11].ACLR
+reset_n => count[12].ACLR
+reset_n => count[13].ACLR
+reset_n => count[14].ACLR
+reset_n => count[15].ACLR
+reset_n => count[16].ACLR
+reset_n => count[17].ACLR
+reset_n => count[18].ACLR
+reset_n => count[19].ACLR
+reset_n => count[20].ACLR
+reset_n => count[21].ACLR
+reset_n => count[22].ACLR
+reset_n => count[23].ACLR
+reset_n => count[24].ACLR
+reset_n => count[25].ACLR
+enable => clock_out~reg0.ENA
+enable => count[25].ENA
+enable => count[24].ENA
+enable => count[23].ENA
+enable => count[22].ENA
+enable => count[21].ENA
+enable => count[20].ENA
+enable => count[19].ENA
+enable => count[18].ENA
+enable => count[17].ENA
+enable => count[16].ENA
+enable => count[15].ENA
+enable => count[14].ENA
+enable => count[13].ENA
+enable => count[12].ENA
+enable => count[11].ENA
+enable => count[10].ENA
+enable => count[9].ENA
+enable => count[8].ENA
+enable => count[7].ENA
+enable => count[6].ENA
+enable => count[5].ENA
+enable => count[4].ENA
+enable => count[3].ENA
+enable => count[2].ENA
+enable => count[1].ENA
+enable => count[0].ENA
+clock_out <= clock_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ProjetoPratico|contador5:comb_22|counter:cnt
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+rstn => count[0]~reg0.ACLR
+rstn => count[1]~reg0.ACLR
+rstn => count[2]~reg0.ACLR
+rstn => count[3]~reg0.ACLR
+rstn => count[4]~reg0.ACLR
+rstn => count[5]~reg0.ACLR
+rstn => count[6]~reg0.ACLR
+en => count[0]~reg0.ENA
+en => count[6]~reg0.ENA
+en => count[5]~reg0.ENA
+en => count[4]~reg0.ENA
+en => count[3]~reg0.ENA
+en => count[2]~reg0.ENA
+en => count[1]~reg0.ENA
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,82 @@
+// 4-State Moore state machine
+
+// A Moore machine's outputs are dependent only on the current state.
+// The output is written only when the state changes.  (State
+// transitions are synchronous.)
+
+module DirectionController
+(
+	input	clk, rstn, switch, button,
+	output reg [3:0] data_out // bit 0: x (column) count_enable,
+	                          // bit 1: x (column) updown,
+	                          // bit 2: y (row) count_enable,
+	                          // bit 3: y (row) updown
+);
+	
+	// Signal declaration
+	reg [1:0] state_reg, state_next;
+				
+	// Declare states
+	localparam [1:0] C = 2'b000, 
+	                 I = 2'b001, 
+						  S = 2'b010, 
+						  T = 2'b100,
+						  X = 3'b011;
+						  
+	
+	// state register
+	always@(posedge clk, negedge rstn)
+		if(!rstn)
+			state_reg <= C;
+		else
+			state_reg <= state_next;
+	
+	// Moore Output depends only on the state
+	always @ (state_reg) 
+	begin
+		case(state_reg)
+			C:
+				data_out = 3'b000;
+			I:
+				data_out = 3'b001;
+			S:
+				data_out = 3'b010;
+			T:
+				data_out = 3'b100;
+			X:
+				data_out = 3'b011;
+			
+			default:
+				data_out = 3'b000;
+		endcase
+	end
+		
+	// Determine the next state
+	always @ *
+	begin
+		case(state_reg)
+			C:
+				if(switch) state_next = I;
+				else if(button) state_next = C;
+				else state_next = C;
+			I:
+				if(!switch) state_next = C;
+				else if(button) state_next = S;
+				else state_next = ;
+			S:
+				if(turn_right) state_next = C;
+				else if(turn_left) state_next = B;
+				else state_next = I;
+			T:
+				if(turn_right) state_next = F;
+				else if(turn_left) state_next = T;
+				else state_next = T;
+			X:
+				if(button and counter1 < 1) state_next = F;
+				else if(turn_left) state_next = T;
+				else state_next = X;
+			default:
+				state_next = C;
+		endcase
+	end
+endmodule
