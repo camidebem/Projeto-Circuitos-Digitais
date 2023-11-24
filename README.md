@@ -1,11 +1,11 @@
-#Contador de Tempo de Reação
+# Contador de Tempo de Reação
 
 Projeto final da disciplina de circuitos digitais utilizando a linguagem verilog e a placa fpga. O projeto consiste em um contador de tempo de reação com algumas restrições e utilizando máquinas de estado.
 
-##Pré-requisitos
+## Pré-requisitos
 Necessário a utilização do software Quartus Prime II e a placa nvidia fpga.
 
-##Como usar
+## Como usar
 Para utilizar o programa com as especificações descritas, siga os passos abaixo:
 
 - Switch 9 - Função "Clear"
