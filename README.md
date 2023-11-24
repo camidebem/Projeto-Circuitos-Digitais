@@ -17,5 +17,5 @@ Antes de iniciar a contagem, verifique se o Switch 0 está ativado (posição ON
 - Button 1 - Stop e Tempo de Reação
 Durante a contagem de 5 segundos, aguarde até que ela termine. Após os 5 segundos, pressione o Button 1 o mais rápido possível. Se o Button 1 for pressionado antes dos 5 segundos terminarem, a mensagem "9.999" será exibida no display. Se demorar mais de um segundo para pressionar o Button 1, o resultado será considerado inválido.
 
-- Display
+- Display -
 O display mostrará o tempo demorado para reagir ao sinal em milissegundos. O resultado será exibido após a pressão do Button 1 e indicará o tempo que você levou para responder ao sinal.
